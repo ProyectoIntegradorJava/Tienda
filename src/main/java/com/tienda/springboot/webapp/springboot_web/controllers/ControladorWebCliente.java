@@ -46,7 +46,7 @@ public class ControladorWebCliente {
         return "redirect:/clientes";
     }
 
-    @PutMapping("/actualizar/{id}") 
+    @PostMapping("/actualizar/{id}") 
     public String actualizarCliente(@PathVariable Integer id,
         @ModelAttribute Cliente detalleCliente,
         RedirectAttributes redirectAttributes) {
@@ -65,7 +65,7 @@ public class ControladorWebCliente {
         return "redirect:/clientes";
     }
 
-    @DeleteMapping("/eliminar/{id}")  
+    @PostMapping("/eliminar/{id}")  
     public String eliminarCliente(@PathVariable Integer id,
         RedirectAttributes redirectAttributes) {
         if (repositorioCliente.existsById(id)) {

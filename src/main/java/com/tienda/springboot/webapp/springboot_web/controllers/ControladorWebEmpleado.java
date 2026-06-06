@@ -51,7 +51,7 @@ public class ControladorWebEmpleado {
         return "redirect:/empleados";
     }
 
-    @PutMapping("/actualizar/{id}")
+    @PostMapping("/actualizar/{id}")
     public String actualizarEmpleado(@PathVariable Integer id, @ModelAttribute Empleado detalleEmpleado, RedirectAttributes redirectAttributes) {
         Optional<Empleado> Empleado = repositorioEmpleado.findById(id);
         if (Empleado.isPresent()) {
@@ -67,7 +67,7 @@ public class ControladorWebEmpleado {
         return "redirect:/empleados";
     }
 
-    @DeleteMapping("/eliminar/{id}")
+    @PostMapping("/eliminar/{id}")
     public String eliminarEmpleado(@PathVariable Integer id, RedirectAttributes redirectAttributes) {
         if(repositorioEmpleado.existsById(id)) {
             repositorioEmpleado.deleteById(id);
